@@ -33,18 +33,33 @@ topKino.onclick = async(event) => {
     writeLocalStorage(event.target.value)
     let films = await getData(event.target.value)
     renderFilms(films)
+
+    searchInput.value = null
+    minInput.value = null
+    maxInput.value = null
+    scoreInput.value = null
 }
 
 popular.onclick = async(event) => {
     writeLocalStorage(event.target.value)
     let films = await getData(event.target.value)
     renderFilms(films)
+
+    searchInput.value = null
+    minInput.value = null
+    maxInput.value = null
+    scoreInput.value = null
 }
 
 upcoming.onclick = async(event) => {
     writeLocalStorage(event.target.value)
     let films = await getData(event.target.value)
     renderFilms(films)
+
+    searchInput.value = null
+    minInput.value = null
+    maxInput.value = null
+    scoreInput.value = null
 }
 
 
