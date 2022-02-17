@@ -80,6 +80,9 @@ pgnPrev.onclick = async() => {
 function renderFilms(films) {
 
     appendFilm.innerHTML = null 
+
+    console.log(films.results);
+    
     for(let i of films.results){ 
         let element = getHtml(i) 
         appendFilm.innerHTML += element 
