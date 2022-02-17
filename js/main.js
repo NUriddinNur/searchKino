@@ -83,8 +83,6 @@ function renderFilms(films) {
 
     appendFilm.innerHTML = null 
 
-    console.log(films.results);
-    
     for(let i of films.results){ 
         let element = getHtml(i) 
         appendFilm.innerHTML += element 
@@ -97,18 +95,13 @@ function renderFilms(films) {
 function filter(films, ism, min, max, score){ 
 
     films = films.filter((el, i) => { 
-        console.log(el);
         let name = ism ? el.title.toLowerCase().includes(ism.toLowerCase()) : true 
         let minDate = min ? el.release_date.slice(0,4) >= min : true 
         let maxDate = max ? el.release_date.slice(0,4) <= max : true 
         let scor = score ? el.vote_average >= score : true 
 
-        console.log(name, minDate, maxDate, score);
-
         return name && minDate && maxDate && scor 
     }) 
-
-    console.log(films);
 
     appendFilm.innerHTML = null 
     if(films.length){ 
