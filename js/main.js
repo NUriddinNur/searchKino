@@ -50,9 +50,10 @@ upcoming.onclick = async(event) => {
 
 
 pgnNext.onclick = async() => {
-    let activCategor = window.localStorage.getItem("activCategory")
+    let activCategory = window.localStorage.getItem("activCategory") || "top_rated"
+    writeLocalStorage(activCategory)
 
-    let films = await getData(activCategor, +titlePgn.textContent+1)
+    let films = await getData(activCategory, +titlePgn.textContent+1)
     renderFilms(films)
     searchInput.value = null
     minInput.value = null
@@ -62,12 +63,13 @@ pgnNext.onclick = async() => {
 
 
 pgnPrev.onclick = async() => {
-    let activCategor = window.localStorage.getItem("activCategory")
+    let activCategory = window.localStorage.getItem("activCategory") || "top_rated"
+    writeLocalStorage(activCategory)
     if(+titlePgn.textContent === 1) {
         return
     }
 
-    let films = await getData(activCategor, +titlePgn.textContent-1)
+    let films = await getData(activCategory, +titlePgn.textContent-1)
     renderFilms(films)
 
     searchInput.value = null
